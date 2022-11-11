@@ -15,7 +15,7 @@ MySQL
 
 ``` create database wassabi; ```
 
-``` CREATE USER ‘wassabi’@’localhost’ IDENTIFIED BY ‘wassabi’; ```
+``` CREATE USER 'wassabi'@'localhost' IDENTIFIED BY 'wassabi'; ```
 
 
 RUN SCRIPTS IN src/main/java/com/wassabi/wassabiapp/model/sql
