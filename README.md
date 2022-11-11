@@ -18,7 +18,7 @@ MySQL
 ``` SQL 
 create database wassabi;
 
-CREATE USER 'wassabi'@'localhost' IDENTIFIED BY 'wassabi'; 
+CREATE USER 'wassabi'@'localhost' IDENTIFIED WITH mysql_native_password BY 'wassabi'; 
 ```
 
 
