@@ -8,17 +8,19 @@ Projeto final dos cursos ministrados pelo professor Antônio Sampaio com apoio d
 MariaDB
 
 ``` SQL
-create database wassabi;
+CREATE DATABASE wassabi;
 
-grant all on wassabi.* to 'wassabi'@'localhost' identified by 'wassabi' with grant option; 
+GRANT all ON wassabi.* TO 'wassabi'@'localhost' identified BY 'wassabi' WITH GRANT OPTION; 
 ```
 
 MySQL
 
 ``` SQL 
-create database wassabi;
+CREATE DATABASE wassabi;
 
-CREATE USER 'wassabi'@'localhost' IDENTIFIED WITH mysql_native_password BY 'wassabi'; 
+CREATE USER 'wassabi'@'localhost' IDENTIFIED WITH mysql_native_password BY 'wassabi';
+
+GRANT all ON wassabi.* TO 'wassabi'@'localhost';
 ```
 
 
