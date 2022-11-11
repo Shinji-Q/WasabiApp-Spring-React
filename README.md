@@ -8,6 +8,7 @@ Projeto final dos cursos ministrados pelo professor Antônio Sampaio com apoio d
 MariaDB | MySQL
 
 ``` create database wassabi; ```
+
 ``` grant all on wassabi.* to 'wassabi'@'localhost' identified by 'wassabi' with grant option; ```
 
 
