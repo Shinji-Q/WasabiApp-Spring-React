@@ -48,7 +48,7 @@ public class ClienteController {
 
         cliente.addEndereco(enderecos);
         for (Endereco endereco : cliente.getEnderecos()) {
-            System.out.println(enderecoService.createEndereco(endereco));
+            System.out.println(enderecoService.saveEndereco(endereco));
         }
         return cliente;
     }

@@ -1,8 +1,5 @@
 package com.wassabi.wassabiapp.repository;
 
-import java.util.Objects;
-
-import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
