@@ -9,23 +9,24 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class CartaoId implements java.io.Serializable {
 
-	private int cartaoId;
-	private int cartaoCliente;
+	private Integer cartaoId;
+	private Integer cartaoCliente;
 
 	public CartaoId() {
 	}
 
-	public CartaoId(int cartaoId, int cartaoCliente) {
+	public CartaoId(Integer cartaoId, Integer cartaoCliente) {
 		this.cartaoId = cartaoId;
 		this.cartaoCliente = cartaoCliente;
 	}
 
 	
     /** 
-     * @return int
+     * @return Integer
      */
+    
     @Column(name = "cartao_id", nullable = false)
-	public int getCartaoId() {
+	public Integer getCartaoId() {
 		return this.cartaoId;
 	}
 

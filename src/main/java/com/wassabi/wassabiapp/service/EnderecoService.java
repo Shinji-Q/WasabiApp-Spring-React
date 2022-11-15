@@ -1,8 +1,9 @@
 package com.wassabi.wassabiapp.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.wassabi.wassabiapp.model.Endereco;
 import com.wassabi.wassabiapp.repository.EnderecoRepository;
@@ -11,11 +12,10 @@ import com.wassabi.wassabiapp.repository.EnderecoRepository;
 public class EnderecoService {
     
     @Autowired
-    private EnderecoRepository repository;
+    private EnderecoRepository enderecoRepository;
 
     @Transactional
     public Endereco createEndereco(Endereco endereco){
-        endereco = repository.save(endereco);
-        return endereco;
+        return enderecoRepository.save(endereco);
     }   
 }

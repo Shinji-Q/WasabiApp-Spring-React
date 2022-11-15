@@ -20,20 +20,20 @@ public class VendaHasProduto implements java.io.Serializable {
 	private VendaHasProdutoId id;
 	private Produto produto;
 	private Venda venda;
-	private int quantidade;
+	private Integer quantidade;
 
 	public VendaHasProduto() {
         //this.id = new VendaHasProdutoId();
 	}
 
-	public VendaHasProduto(VendaHasProdutoId id, Produto produto, Venda venda, int quantidade) {
+	public VendaHasProduto(VendaHasProdutoId id, Produto produto, Venda venda, Integer quantidade) {
 		this.id = id;
 		this.produto = produto;
 		this.venda = venda;
 		this.quantidade = quantidade;
 	}
 
-    public VendaHasProduto(Produto produto, Venda venda, int quantidade) {
+    public VendaHasProduto(Produto produto, Venda venda, Integer quantidade) {
 		this.id = new VendaHasProdutoId();
         this.id.setProdutoId(produto.getProdutoId());
 		this.produto = produto;
@@ -41,7 +41,7 @@ public class VendaHasProduto implements java.io.Serializable {
 		this.quantidade = quantidade;
 	}
 
-    public VendaHasProduto(Produto produto, int quantidade) {
+    public VendaHasProduto(Produto produto, Integer quantidade) {
         VendaHasProdutoId vhpi = new VendaHasProdutoId();
         vhpi.setProdutoId(produto.getProdutoId());
 		this.id = vhpi;

@@ -11,11 +11,26 @@ import com.wassabi.wassabiapp.repository.ClienteRepository;
 public class ClienteService {
     
     @Autowired
-    private ClienteRepository repository;
+    private ClienteRepository clienteRepository;
 
     @Transactional
-    public Cliente createCliente(Cliente cliente){
-        cliente = repository.save(cliente);
+    public Cliente saveCliente(Cliente cliente){
+        cliente = clienteRepository.save(cliente);
         return cliente;
-    }   
+    }
+
+    @Transactional
+    public Iterable<Cliente> getAllCliente(){
+        return clienteRepository.findAll();
+    }
+
+    @Transactional
+    public Cliente getCliente(int cliente_id){
+        return clienteRepository.findById(cliente_id).get();
+    }
+
+    @Transactional
+    public void deleteCliente(Cliente cliente) {
+        clienteRepository.delete(cliente);
+    }
 }

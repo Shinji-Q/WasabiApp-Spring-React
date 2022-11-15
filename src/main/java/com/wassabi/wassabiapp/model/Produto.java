@@ -76,7 +76,7 @@ public class Produto implements java.io.Serializable {
     /** 
      * @return Categoria
      */
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "produto_categoria", nullable = false)
 	public Categoria getCategoria() {
 		return this.categoria;

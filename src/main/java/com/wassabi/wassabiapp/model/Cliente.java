@@ -63,7 +63,6 @@ public class Cliente implements java.io.Serializable {
      */
     @Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "cliente_id", unique = true, nullable = false)
 	public Integer getClienteId() {
 		return this.clienteId;
@@ -201,7 +200,7 @@ public class Cliente implements java.io.Serializable {
     /** 
      * @return Set<Endereco>
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = {CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
 	public Set<Endereco> getEnderecos() {
 		return this.enderecos;
 	}
@@ -232,7 +231,18 @@ public class Cliente implements java.io.Serializable {
 
     @Transient
     public void addEndereco(Endereco endereco){
+        endereco.setId(new EnderecoId());
+        endereco.getId().setEnderecoCliente(this.getClienteId());
         this.enderecos.add(endereco);
+    }
+
+    @Transient
+    public void addEndereco(Set<Endereco> enderecos){
+        for (Endereco endereco : enderecos) {
+            endereco.setId(new EnderecoId());
+            endereco.getId().setEnderecoCliente(this.getClienteId());
+            this.enderecos.add(endereco);
+        }
     }
 
     @Transient
@@ -246,7 +256,8 @@ public class Cliente implements java.io.Serializable {
     public void updateEnderecoID(){
         if (this.enderecos.size() > 0) {
             this.enderecos.forEach(endereco -> {
-                endereco.getId().setEnderecoCliente(this.clienteId);
+                endereco.setId(new EnderecoId());
+                endereco.getId().setEnderecoCliente(this.getClienteId());
             });    
         }
     }
