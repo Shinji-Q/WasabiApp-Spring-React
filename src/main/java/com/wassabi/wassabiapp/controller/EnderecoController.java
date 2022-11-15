@@ -50,6 +50,6 @@ public class EnderecoController {
     @DeleteMapping(value="/endereco")
     public void deleteEndereco(@RequestBody Endereco endereco) {
         enderecoService.deleteEndereco(endereco);
-    }    
+    }
     
 }
