@@ -14,12 +14,8 @@ import com.wassabi.wassabiapp.service.ProdutoService;
 
 @RestController
 public class ProdutoController {
-    private ProdutoService produtoService;
-
     @Autowired
-	public ProdutoController(ProdutoService produtoService) {
-		this.produtoService = produtoService;
-	}
+    private ProdutoService produtoService;
 
     @GetMapping("/produto")
     public Iterable<Produto> getAllProduto(){
@@ -28,6 +24,8 @@ public class ProdutoController {
 
     @GetMapping("/produto/{produtoId}")
     public Produto getProduto(@PathVariable int produtoId){
+        System.out.println("aaaa");
+        System.out.println(produtoService.getProduto(produtoId));
         return produtoService.getProduto(produtoId);
     }
 

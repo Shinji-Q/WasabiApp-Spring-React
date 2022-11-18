@@ -30,6 +30,7 @@ public class Produto implements java.io.Serializable {
 	private String produtoNome;
 	private double produtoPreco;
 	private String produtoDescricao;
+    
     @JsonIgnore
 	private Set<VendaHasProduto> vendaHasProdutos = new HashSet<VendaHasProduto>(0);
 
@@ -58,7 +59,6 @@ public class Produto implements java.io.Serializable {
      */
     @Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "produto_id", unique = true, nullable = false)
 	public Integer getProdutoId() {
 		return this.produtoId;
