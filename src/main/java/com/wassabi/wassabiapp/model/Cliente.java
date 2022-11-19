@@ -165,7 +165,7 @@ public class Cliente implements java.io.Serializable {
     /** 
      * @return Set<Cartao>
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = {CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
 	public Set<Cartao> getCartaos() {
 		return this.cartaos;
 	}

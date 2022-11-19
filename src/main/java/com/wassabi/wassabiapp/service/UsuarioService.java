@@ -14,9 +14,9 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Transactional
-    public Usuario saveUsuario(Usuario cliente){
-        cliente = usuarioRepository.save(cliente);
-        return cliente;
+    public Usuario saveUsuario(Usuario usuario){
+        usuario = usuarioRepository.save(usuario);
+        return usuario;
     }
 
     @Transactional
@@ -30,7 +30,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void deleteUsuario(Usuario cliente) {
-        usuarioRepository.delete(cliente);
+    public void deleteUsuario(Usuario usuario) {
+        usuarioRepository.delete(usuario);
     }
 }
