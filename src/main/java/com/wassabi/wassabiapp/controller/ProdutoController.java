@@ -44,10 +44,10 @@ public class ProdutoController {
     }
 
 
-    // @GetMapping("/produto/cat/{categoriaId}")
-    // public Iterable<Produto> getProdutoByCat(@PathVariable int categoriaId){
-    //     return produtoService.getProdutoByCategoria(categoriaId);
-    // }
+    @GetMapping("/produto/cat/{categoriaId}")
+    public Iterable<Produto> getProdutoByCat(@PathVariable int categoriaId){
+        return produtoService.getProdutoByCategoria(categoriaId);
+    }
 
 
 }
