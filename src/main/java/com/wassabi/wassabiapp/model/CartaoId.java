@@ -22,8 +22,9 @@ public class CartaoId implements java.io.Serializable {
 
 	
     /** 
-     * @return int
+     * @return Integer
      */
+    
     @Column(name = "cartao_id", nullable = false)
 	public int getCartaoId() {
 		return this.cartaoId;

@@ -9,23 +9,23 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class VendaHasProdutoId implements java.io.Serializable {
 
-	private int vendaId;
-	private int produtoId;
+	private Integer vendaId;
+	private Integer produtoId;
 
 	public VendaHasProdutoId() {
 	}
 
-	public VendaHasProdutoId(int vendaId, int produtoId) {
+	public VendaHasProdutoId(Integer vendaId, Integer produtoId) {
 		this.vendaId = vendaId;
 		this.produtoId = produtoId;
 	}
 
 	
     /** 
-     * @return int
+     * @return Integer
      */
     @Column(name = "venda_id", nullable = false)
-	public int getVendaId() {
+	public Integer getVendaId() {
 		return this.vendaId;
 	}
 
@@ -33,16 +33,16 @@ public class VendaHasProdutoId implements java.io.Serializable {
     /** 
      * @param vendaId
      */
-    public void setVendaId(int vendaId) {
+    public void setVendaId(Integer vendaId) {
 		this.vendaId = vendaId;
 	}
 
 	
     /** 
-     * @return int
+     * @return Integer
      */
     @Column(name = "produto_id", nullable = false)
-	public int getProdutoId() {
+	public Integer getProdutoId() {
 		return this.produtoId;
 	}
 
@@ -50,7 +50,7 @@ public class VendaHasProdutoId implements java.io.Serializable {
     /** 
      * @param produtoId
      */
-    public void setProdutoId(int produtoId) {
+    public void setProdutoId(Integer produtoId) {
 		this.produtoId = produtoId;
 	}
 

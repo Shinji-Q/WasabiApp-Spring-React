@@ -1,3 +1,4 @@
+-- Active: 1668471960202@@127.0.0.1@3306@wassabi
 use wassabi;
 
 ALTER TABLE `Produto` DROP FOREIGN KEY `Produto_fk0`;
