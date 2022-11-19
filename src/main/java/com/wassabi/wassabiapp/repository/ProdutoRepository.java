@@ -1,5 +1,6 @@
 package com.wassabi.wassabiapp.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,6 @@ import com.wassabi.wassabiapp.model.Produto;
 @Repository
 public interface ProdutoRepository extends CrudRepository<Produto, Integer> {
 
-    // public Iterable<Produto> findByCategoria(int categoriaId);
-
+    @Query("SELECT c from Produto c WHERE produto_categoria= ?1")
+    Iterable<Produto> findProdutoByCategoria(int categoriaId);
 }
