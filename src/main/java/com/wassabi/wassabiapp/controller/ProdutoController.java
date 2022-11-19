@@ -18,7 +18,6 @@ public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
 
-    @CrossOrigin(origins = "http://localhost:80")
     @GetMapping("/produto")
     public Iterable<Produto> getAllProduto(){
         return produtoService.getAllProduto();
@@ -26,8 +25,6 @@ public class ProdutoController {
 
     @GetMapping("/produto/{produtoId}")
     public Produto getProduto(@PathVariable int produtoId){
-        System.out.println("aaaa");
-        System.out.println(produtoService.getProduto(produtoId));
         return produtoService.getProduto(produtoId);
     }
 
