@@ -3,6 +3,7 @@ package com.wassabi.wassabiapp.model;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -58,7 +59,7 @@ public class Usuario implements java.io.Serializable {
 		this.usuarioId = usuarioId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "usuario_cliente", unique = true)
 	public Cliente getCliente() {
 		return this.cliente;

@@ -16,8 +16,7 @@ public class EnderecoService {
 
     @Transactional
     public Endereco saveEndereco(Endereco endereco){
-        endereco = enderecoRepository.save(endereco);
-        return endereco;
+        return enderecoRepository.save(endereco);
     }
 
     @Transactional

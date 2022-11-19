@@ -13,10 +13,16 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private ClienteService clienteService;
+
     @Transactional
-    public Usuario saveUsuario(Usuario cliente){
-        cliente = usuarioRepository.save(cliente);
-        return cliente;
+    public Usuario saveUsuario(Usuario usuario){
+        usuario = usuarioRepository.save(usuario);
+        if (usuario.getCliente() != null) {
+            clienteService.saveCliente(usuario.getCliente());
+        }
+        return usuario;
     }
 
     @Transactional
@@ -30,7 +36,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void deleteUsuario(Usuario cliente) {
-        usuarioRepository.delete(cliente);
+    public void deleteUsuario(Usuario usuario) {
+        usuarioRepository.delete(usuario);
     }
 }

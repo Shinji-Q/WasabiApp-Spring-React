@@ -10,12 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "Cartao", catalog = "wassabi")
 public class Cartao implements java.io.Serializable {
 
 	private CartaoId id;
+    @JsonIgnore
 	private Cliente cliente;
 	private String cartaoNumero;
 
