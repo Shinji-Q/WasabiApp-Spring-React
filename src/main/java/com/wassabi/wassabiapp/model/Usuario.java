@@ -77,20 +77,17 @@ public class Usuario implements java.io.Serializable {
 		this.usuarioEmail = usuarioEmail;
 	}
 
-	@Column(name = "usuario_senha", nullable = false, length = 71)
+	@Column(name = "usuario_senha", nullable = false, length = 60)
 	public String getUsuarioSenha() {
 		return this.usuarioSenha;
 	}
 
 	public void setUsuarioSenha(String usuarioSenha) {
-		try {
-            this.usuarioSenha = PasswordStorage.createHash(usuarioSenha);
-        } catch (CannotPerformOperationException e) {
-            e.printStackTrace();
-        }
+		// this.usuarioSenha = PasswordStorage.createHash(usuarioSenha);
+		this.usuarioSenha = usuarioSenha;
 	}
 
-	@Column(name = "usuario_tipo", nullable = false, length = 13)
+	@Column(name = "usuario_tipo", nullable = false, length = 5)
 	public String getUsuarioTipo() {
 		return this.usuarioTipo;
 	}
@@ -98,6 +95,7 @@ public class Usuario implements java.io.Serializable {
 	public void setUsuarioTipo(String usuarioTipo) {
 		this.usuarioTipo = usuarioTipo;
 	}
+
 
     @Override
     public String toString() {
