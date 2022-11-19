@@ -9,13 +9,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class CartaoId implements java.io.Serializable {
 
-	private Integer cartaoId;
-	private Integer cartaoCliente;
+	private int cartaoId;
+	private int cartaoCliente;
 
 	public CartaoId() {
 	}
 
-	public CartaoId(Integer cartaoId, Integer cartaoCliente) {
+	public CartaoId(int cartaoId, int cartaoCliente) {
 		this.cartaoId = cartaoId;
 		this.cartaoCliente = cartaoCliente;
 	}
@@ -26,7 +26,7 @@ public class CartaoId implements java.io.Serializable {
      */
     
     @Column(name = "cartao_id", nullable = false)
-	public Integer getCartaoId() {
+	public int getCartaoId() {
 		return this.cartaoId;
 	}
 

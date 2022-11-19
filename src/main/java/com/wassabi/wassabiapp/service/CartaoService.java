@@ -16,8 +16,7 @@ public class CartaoService {
 
     @Transactional
     public Cartao saveCartao(Cartao cartao){
-        cartao = cartaoRepository.save(cartao);
-        return cartao;
+        return cartaoRepository.save(cartao);
     }
 
     @Transactional

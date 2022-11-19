@@ -13,9 +13,15 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private ClienteService clienteService;
+
     @Transactional
     public Usuario saveUsuario(Usuario usuario){
         usuario = usuarioRepository.save(usuario);
+        if (usuario.getCliente() != null) {
+            clienteService.saveCliente(usuario.getCliente());
+        }
         return usuario;
     }
 

@@ -183,7 +183,7 @@ public class Cliente implements java.io.Serializable {
     /** 
      * @return Set<Usuario>
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", orphanRemoval = true)
 	public Set<Usuario> getUsuarios() {
 		return this.usuarios;
 	}
@@ -247,7 +247,18 @@ public class Cliente implements java.io.Serializable {
 
     @Transient
     public void addCartao(Cartao cartao){
+        cartao.setId(new CartaoId());
+        cartao.getId().setCartaoCliente(this.getClienteId());
         this.cartaos.add(cartao);
+    }
+
+    @Transient
+    public void addCartao(Set<Cartao> cartoes){
+        for (Cartao cartao : cartoes) {
+            cartao.setId(new CartaoId());
+            cartao.getId().setCartaoCliente(this.getClienteId());
+            this.cartaos.add(cartao);
+        }
     }
 
     /*
