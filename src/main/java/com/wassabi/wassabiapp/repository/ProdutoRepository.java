@@ -11,5 +11,6 @@ import com.wassabi.wassabiapp.model.Produto;
 @Repository
 public interface ProdutoRepository extends CrudRepository<Produto, Integer> {
 
-    
+    // public Iterable<Produto> findByCategoria(int categoriaId);
+
 }

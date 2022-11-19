@@ -33,4 +33,10 @@ public class ProdutoService {
     public void deleteProduto(Produto produto) {
         produtoRepository.delete(produto);
     }
+
+    // @Transactional
+    // public Iterable<Produto> getProdutoByCategoria(int categoriaId){
+    //     return produtoRepository.findByCategoria(categoriaId);
+    // }
+
 }

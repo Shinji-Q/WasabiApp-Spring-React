@@ -11,5 +11,4 @@ import com.wassabi.wassabiapp.model.Usuario;
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
  
     public Usuario findByUsuarioEmail(String usuarioEmail);
-
 }
