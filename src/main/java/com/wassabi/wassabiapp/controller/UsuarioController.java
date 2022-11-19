@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wassabi.wassabiapp.model.Usuario;
-import com.wassabi.wassabiapp.service.ClienteService;
 import com.wassabi.wassabiapp.service.UsuarioService;
 
 @RestController
@@ -19,9 +18,6 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-
-    @Autowired
-    private ClienteService clienteService;
 
     @GetMapping("/usuario")
     public @ResponseBody Iterable<Usuario> getUsuario(){
