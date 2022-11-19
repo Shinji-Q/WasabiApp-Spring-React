@@ -15,7 +15,6 @@ import com.wassabi.wassabiapp.model.Produto;
 import com.wassabi.wassabiapp.model.Usuario;
 import com.wassabi.wassabiapp.model.UsuarioTipo;
 import com.wassabi.wassabiapp.model.Venda;
-import com.wassabi.wassabiapp.model.VendaHasProduto;
 import com.wassabi.wassabiapp.service.CategoriaService;
 import com.wassabi.wassabiapp.service.ClienteService;
 import com.wassabi.wassabiapp.service.ProdutoService;

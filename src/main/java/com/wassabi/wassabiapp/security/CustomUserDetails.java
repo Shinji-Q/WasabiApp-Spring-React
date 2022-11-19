@@ -17,8 +17,7 @@ public class CustomUserDetails implements UserDetails{
 
     private String usuarioEmail;
 	private String usuarioSenha;
-	private List<GrantedAuthority> authorities;    
-    private String username;
+	private List<GrantedAuthority> authorities;
 
     public CustomUserDetails(Usuario usuario){
         // super();

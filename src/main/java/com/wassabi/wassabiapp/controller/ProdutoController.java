@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wassabi.wassabiapp.model.Produto;
+import com.wassabi.wassabiapp.repository.ProdutoRepository;
 import com.wassabi.wassabiapp.service.ProdutoService;
 
 @RestController
 public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
+
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
     @GetMapping("/produto")
     public Iterable<Produto> getAllProduto(){
@@ -46,7 +50,7 @@ public class ProdutoController {
 
     @GetMapping("/produto/cat/{categoriaId}")
     public Iterable<Produto> getProdutoByCat(@PathVariable int categoriaId){
-        return produtoService.getProdutoByCategoria(categoriaId);
+        return produtoRepository.findProdutoByCategoria(categoriaId);
     }
 
 
