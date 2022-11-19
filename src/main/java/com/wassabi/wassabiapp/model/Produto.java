@@ -78,7 +78,7 @@ public class Produto implements java.io.Serializable {
     /** 
      * @return Categoria
      */
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "produto_categoria", nullable = false)
 	public Categoria getCategoria() {
 		return this.categoria;
