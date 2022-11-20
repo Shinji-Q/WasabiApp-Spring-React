@@ -44,7 +44,7 @@ public class Populate {
 
     @Test
     public void populatePromocao(){
-        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
+        MultipartFile file = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/melhor_lig.png");
         Categoria categoria = new Categoria("Promoção", "Promoção");
         categoria = categoriaService.saveCategoria(categoria);
         Produto produto1 = new Produto(categoria, "Combo Promo 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
