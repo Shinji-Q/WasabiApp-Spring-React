@@ -67,8 +67,12 @@ public class ProdutoController {
 
 
     @GetMapping("/produto/cat/{categoriaId}")
-    public Iterable<Produto> getProdutoByCat(@PathVariable int categoriaId){
-        return produtoRepository.findProdutoByCategoria(categoriaId);
+    public Iterable<ProdutoDTO> getProdutoByCat(@PathVariable int categoriaId){
+        List<ProdutoDTO> lista = new ArrayList<>();
+        produtoRepository.findProdutoByCategoria(categoriaId).forEach(produto -> {
+            lista.add(convertToDTO(produto));
+        });
+        return lista;
     }
 
     private ProdutoDTO convertToDTO(Produto produto) {
