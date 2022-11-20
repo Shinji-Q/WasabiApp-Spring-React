@@ -32,6 +32,12 @@ public class Categoria implements java.io.Serializable {
 	public Categoria() {
 	}
 
+    public Categoria(Integer categoriaId, String categoriaNome, String categoriaDescricao) {
+		this.categoriaId = categoriaId;
+        this.categoriaNome = categoriaNome;
+		this.categoriaDescricao = categoriaDescricao;
+	}
+
 	public Categoria(String categoriaNome, String categoriaDescricao) {
 		this.categoriaNome = categoriaNome;
 		this.categoriaDescricao = categoriaDescricao;
