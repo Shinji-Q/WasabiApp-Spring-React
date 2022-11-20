@@ -36,17 +36,13 @@ public class ProdutoController {
     private ModelMapper modelMapper;
 
     @GetMapping("/produto")
-    public Iterable<ProdutoDTO> getAllProduto(){
-        List<ProdutoDTO> lista = new ArrayList<>();
-        produtoService.getAllProduto().forEach(produto -> {
-            lista.add(convertToDTO(produto));
-        });
-        return lista;
+    public Iterable<Produto> getAllProduto(){
+        return produtoService.getAllProduto();
     }
 
     @GetMapping("/produto/{produtoId}")
-    public ProdutoDTO getProduto(@PathVariable int produtoId){
-        return convertToDTO(produtoService.getProduto(produtoId));
+    public Produto getProduto(@PathVariable int produtoId){
+        return produtoService.getProduto(produtoId);
     }
 
     @PostMapping(value="/produto")
@@ -67,12 +63,8 @@ public class ProdutoController {
 
 
     @GetMapping("/produto/cat/{categoriaId}")
-    public Iterable<ProdutoDTO> getProdutoByCat(@PathVariable int categoriaId){
-        List<ProdutoDTO> lista = new ArrayList<>();
-        produtoRepository.findProdutoByCategoria(categoriaId).forEach(produto -> {
-            lista.add(convertToDTO(produto));
-        });
-        return lista;
+    public Iterable<Produto> getProdutoByCat(@PathVariable int categoriaId){
+        return produtoRepository.findProdutoByCategoria(categoriaId);
     }
 
     private ProdutoDTO convertToDTO(Produto produto) {

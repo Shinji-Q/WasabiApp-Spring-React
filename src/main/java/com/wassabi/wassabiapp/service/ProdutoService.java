@@ -30,7 +30,7 @@ public class ProdutoService {
             if (!folder.exists()) {
                 folder.mkdir();
             }
-            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, UUID.randomUUID().toString().substring(0, 20) + file.getOriginalFilename());
+            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, UUID.randomUUID().toString().substring(0, 20) + ".png");
             produto.setProdutoImagem(fileNameAndPath.toString());
             produto = saveProduto(produto);
             if (produto.getProdutoId() != 0) {
