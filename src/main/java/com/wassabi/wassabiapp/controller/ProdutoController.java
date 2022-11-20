@@ -1,7 +1,9 @@
 package com.wassabi.wassabiapp.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wassabi.wassabiapp.dto.Produto2DTO;
 import com.wassabi.wassabiapp.dto.ProdutoDTO;
 import com.wassabi.wassabiapp.model.Produto;
 import com.wassabi.wassabiapp.repository.ProdutoRepository;
@@ -36,13 +39,17 @@ public class ProdutoController {
     private ModelMapper modelMapper;
 
     @GetMapping("/produto")
-    public Iterable<Produto> getAllProduto(){
-        return produtoService.getAllProduto();
+    public Iterable<Produto2DTO> getAllProduto(){
+        List<Produto2DTO> lista = new ArrayList<>();
+        produtoService.getAllProduto().forEach(produto -> {
+            lista.add(convertToDTO2(produto));
+        });
+        return lista;
     }
 
     @GetMapping("/produto/{produtoId}")
-    public Produto getProduto(@PathVariable int produtoId){
-        return produtoService.getProduto(produtoId);
+    public Produto2DTO getProduto(@PathVariable int produtoId){
+        return convertToDTO2(produtoService.getProduto(produtoId));
     }
 
     @PostMapping(value="/produto")
@@ -63,8 +70,12 @@ public class ProdutoController {
 
 
     @GetMapping("/produto/cat/{categoriaId}")
-    public Iterable<Produto> getProdutoByCat(@PathVariable int categoriaId){
-        return produtoRepository.findProdutoByCategoria(categoriaId);
+    public Iterable<Produto2DTO> getProdutoByCat(@PathVariable int categoriaId){
+        List<Produto2DTO> lista = new ArrayList<>();
+        produtoRepository.findProdutoByCategoria(categoriaId).forEach(produto -> {
+            lista.add(convertToDTO2(produto));
+        });
+        return lista;
     }
 
     private ProdutoDTO convertToDTO(Produto produto) {
@@ -75,10 +86,27 @@ public class ProdutoController {
         return produtoDTO;
     }
 
+    private Produto2DTO convertToDTO2(Produto produto) {
+        Produto2DTO produtoDTO = modelMapper.map(produto, Produto2DTO.class);
+        if (produto.getProdutoImagem() != null) {
+            try {
+                produtoDTO.setProdutoImagem(getImageFileSystem2(produto.getProdutoImagem()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return produtoDTO;
+    }
+
     private FileToMultipartFile getImageFileSystem(String filePath) {
         File file = new File(filePath);
         FileToMultipartFile multi = new FileToMultipartFile(file);
         return multi;
+    }
+
+    public byte[] getImageFileSystem2(String fileName) throws IOException {       
+        byte[] images = Files.readAllBytes(new File(fileName).toPath());
+        return images;
     }
 
     @SuppressWarnings("unused")
