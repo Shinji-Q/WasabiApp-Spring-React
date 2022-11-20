@@ -89,6 +89,7 @@ public class ProdutoController {
         return multi;
     }
 
+    @SuppressWarnings("unused")
     private Iterable<ProdutoDTO> convertProductToDTO(Iterable<Produto> produtos){
         Type listType = new TypeToken<List<ProdutoDTO>>(){}.getType();
         List<ProdutoDTO> postDtoList = modelMapper.map(produtos,listType);
