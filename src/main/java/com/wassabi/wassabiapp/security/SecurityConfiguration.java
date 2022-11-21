@@ -4,9 +4,6 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,20 +21,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     CustomUserDetailsService customUserDetailsService;
 
-    
-    @Bean
-    AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(customUserDetailsService);
-        provider.setPasswordEncoder(getPasswordEncoder() ); //provider.setPasswordEncoder(new BCryptPasswordEncoder());
-        return provider;
-    }
-    
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-        // auth.userDetailsService(customUserDetailsService);
+        auth.userDetailsService(customUserDetailsService);
     }
+
+    // @Bean
+    // AuthenticationProvider authenticationProvider(){
+    //     DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+    //     provider.setUserDetailsService(customUserDetailsService);
+    //     provider.setPasswordEncoder(getPasswordEncoder() ); //provider.setPasswordEncoder(new BCryptPasswordEncoder());
+    //     return provider;
+    // }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
