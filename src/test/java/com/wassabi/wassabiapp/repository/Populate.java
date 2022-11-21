@@ -1,11 +1,13 @@
 package com.wassabi.wassabiapp.repository;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.wassabi.wassabiapp.model.Cartao;
 import com.wassabi.wassabiapp.model.Categoria;
@@ -20,6 +22,7 @@ import com.wassabi.wassabiapp.service.ClienteService;
 import com.wassabi.wassabiapp.service.ProdutoService;
 import com.wassabi.wassabiapp.service.UsuarioService;
 import com.wassabi.wassabiapp.service.VendaService;
+import com.wassabi.wassabiapp.util.FileToMultipartFile;
 
 @SpringBootTest
 public class Populate {
@@ -41,61 +44,64 @@ public class Populate {
 
     @Test
     public void populatePromocao(){
+        MultipartFile file = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/melhor_lig.png");
         Categoria categoria = new Categoria("Promoção", "Promoção");
         categoria = categoriaService.saveCategoria(categoria);
         Produto produto1 = new Produto(categoria, "Combo Promo 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1);
+        produtoService.saveProduto(produto1, file);
         Produto produto2 = new Produto(categoria, "Combo Promo 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2);
+        produtoService.saveProduto(produto2, file);
         Produto produto3 = new Produto(categoria, "Combo Promo 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3);
+        produtoService.saveProduto(produto3, file);
         Produto produto4 = new Produto(categoria, "Combo Promo 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4);
+        produtoService.saveProduto(produto4, file);
     }
-
 
     @Test
     public void populateTemaki(){
+        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
         Categoria categoria = new Categoria("Temaki", "Não tem");
         categoria = categoriaService.saveCategoria(categoria);
         Produto produto1 = new Produto(categoria, "Temaki 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1);
+        produtoService.saveProduto(produto1, file);
         Produto produto2 = new Produto(categoria, "Temaki 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2);
+        produtoService.saveProduto(produto2, file);
         Produto produto3 = new Produto(categoria, "Temaki 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3);
+        produtoService.saveProduto(produto3, file);
         Produto produto4 = new Produto(categoria, "Temaki 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4);
+        produtoService.saveProduto(produto4, file);
     }
 
 
     @Test
     public void populateEntradas(){
+        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
         Categoria categoria = new Categoria("Entradas", "Não tem");
         categoria = categoriaService.saveCategoria(categoria);
         Produto produto1 = new Produto(categoria, "Entradas 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1);
+        produtoService.saveProduto(produto1, file);
         Produto produto2 = new Produto(categoria, "Entradas 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2);
+        produtoService.saveProduto(produto2, file);
         Produto produto3 = new Produto(categoria, "Entradas 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3);
+        produtoService.saveProduto(produto3, file);
         Produto produto4 = new Produto(categoria, "Entradas 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4);
+        produtoService.saveProduto(produto4, file);
     }
 
 
     @Test
     public void populateWassabi(){
+        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
         Categoria categoria = new Categoria("Wassabi", "Não tem");
         categoria = categoriaService.saveCategoria(categoria);
         Produto produto1 = new Produto(categoria, "Wassabi 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1);
+        produtoService.saveProduto(produto1, file);
         Produto produto2 = new Produto(categoria, "Wassabi 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2);
+        produtoService.saveProduto(produto2, file);
         Produto produto3 = new Produto(categoria, "Wassabi 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3);
+        produtoService.saveProduto(produto3, file);
         Produto produto4 = new Produto(categoria, "Wassabi 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4);
+        produtoService.saveProduto(produto4, file);
     }
 
 
@@ -142,5 +148,12 @@ public class Populate {
                 vendaService.saveVenda(venda);
             }            
         }
+    }
+
+
+    private FileToMultipartFile getImageFileSystem(String filePath) {
+        File file = new File(filePath);
+        FileToMultipartFile multi = new FileToMultipartFile(file);
+        return multi;
     }
 }

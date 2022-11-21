@@ -3,6 +3,7 @@ use wassabi;
 
 CREATE TABLE Produto (
 	produto_id int(30) NOT NULL AUTO_INCREMENT,
+	produto_imagem varchar(100),
 	produto_nome varchar(30) NOT NULL,
 	produto_preco double(30,2) NOT NULL,
 	produto_descricao varchar(80) NOT NULL,
