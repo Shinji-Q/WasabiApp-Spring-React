@@ -91,7 +91,12 @@ public class ProdutoController {
         Produto2DTO produtoDTO = modelMapper.map(produto, Produto2DTO.class);
         if (produto.getProdutoImagem() != null) {
             try {
-                produtoDTO.setProdutoImagem(getImageFileSystem2(produto.getProdutoImagem()));
+                byte[] imagem = getImageFileSystem2(produto.getProdutoImagem());
+                if (imagem.length > 0){
+                    produtoDTO.setProdutoImagem(imagem);
+                } else {
+                    produtoDTO.setProdutoImagem(null);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
