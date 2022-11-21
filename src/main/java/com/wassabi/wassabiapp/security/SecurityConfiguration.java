@@ -43,22 +43,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
         // .cors().and().csrf().disable()
         .csrf().disable()
-        .cors().disable()
+        .cors().and()
         .authorizeRequests()
-                .antMatchers("/cliente").authenticated()
-                .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/produto/**").authenticated()
-                .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
-                .antMatchers("/usuario").authenticated()
-
-                .antMatchers("/").permitAll()
-                .and().formLogin()
-                    .loginPage("http://localhost:80/login")
-                    .loginProcessingUrl("/login")
-                    .defaultSuccessUrl("http://localhost:80/")
-                    .failureUrl("http://localhost:80/login?error=true")
-                
-            ;
+        .antMatchers("/cliente").authenticated()
+        .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
+        .antMatchers(HttpMethod.GET,"/produto/**").authenticated()
+        .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
+        .antMatchers("/usuario").authenticated()
+        
+        .antMatchers("/").permitAll()
+        .and().formLogin()
+            .loginPage("http://localhost:80/login")
+            .loginProcessingUrl("/login")
+            .defaultSuccessUrl("http://localhost:80/")
+            .failureUrl("http://localhost:80/login?error=true")
+        
+        ;
                 
     }
 
