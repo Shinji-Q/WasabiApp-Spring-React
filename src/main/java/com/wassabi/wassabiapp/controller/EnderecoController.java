@@ -2,7 +2,6 @@ package com.wassabi.wassabiapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,10 +25,10 @@ public class EnderecoController {
 		this.enderecoService = enderecoService;
 	}
 
-    @GetMapping("/endereco")
-    public Iterable<Endereco> getAllEndereco(){
-        return enderecoService.getAllEndereco();
-    }
+    // @GetMapping("/endereco")
+    // public Iterable<Endereco> getAllEndereco(){
+    //     return enderecoService.getAllEndereco();
+    // }
 
     @RequestMapping(value = "/endereco", params = {"enderecoId", "enderecoCliente"}, method = RequestMethod.GET)
     public Endereco getEndereco(@RequestParam("enderecoId") int enderecoId, @RequestParam("enderecoCliente") int enderecoCliente){

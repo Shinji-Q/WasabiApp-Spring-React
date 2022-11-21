@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -42,8 +43,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .cors().and()
         .authorizeRequests()
         .antMatchers("/cliente").authenticated()
-        .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
-        .antMatchers(HttpMethod.GET,"/produto/**").authenticated()
+        .antMatchers(HttpMethod.GET,"/produto/**").permitAll() //authenticated()
+        // .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
         .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
         .antMatchers("/usuario").authenticated()
         
