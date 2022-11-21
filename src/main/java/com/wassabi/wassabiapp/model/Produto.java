@@ -5,6 +5,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,8 +32,6 @@ public class Produto implements java.io.Serializable {
 	private String produtoNome;
 	private double produtoPreco;
 	private String produtoDescricao;
-    private String produtoImagem;
-
     
     @JsonIgnore
 	private Set<VendaHasProduto> vendaHasProdutos = new HashSet<VendaHasProduto>(0);
@@ -79,7 +78,7 @@ public class Produto implements java.io.Serializable {
     /** 
      * @return Categoria
      */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "produto_categoria", nullable = false)
 	public Categoria getCategoria() {
 		return this.categoria;
@@ -148,7 +147,7 @@ public class Produto implements java.io.Serializable {
     /** 
      * @return Set<VendaHasProduto>
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "produto", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
 	public Set<VendaHasProduto> getVendaHasProdutos() {
 		return this.vendaHasProdutos;
 	}
@@ -160,17 +159,6 @@ public class Produto implements java.io.Serializable {
     public void setVendaHasProdutos(Set<VendaHasProduto> vendaHasProdutos) {
 		this.vendaHasProdutos = vendaHasProdutos;
 	}
-
-
-    @Column(name = "produto_imagem", length = 100)
-    public String getProdutoImagem() {
-        return produtoImagem;
-    }
-
-
-    public void setProdutoImagem(String produtoImagem) {
-        this.produtoImagem = produtoImagem;
-    }
 
     
     /** 

@@ -20,8 +20,12 @@ public class VendaService {
     @Transactional
     public Venda saveVenda(Venda venda){
         venda = vendaRepository.save(venda);
+        System.out.println(venda);
         for (VendaHasProduto vendaHasProduto : venda.getVendaHasProdutos()) {
-            vendaHasProduto.getId().setVendaId(venda.getVendaId());            
+            vendaHasProduto.getId().setVendaId(venda.getVendaId());
+            System.out.println(vendaHasProduto);
+            System.out.println("quantidadeeeeeeeeeeee" + vendaHasProduto.getQuantidade());
+            
         }
         vendaHasProdutoService.saveVendaHasProdutoAll(venda.getVendaHasProdutos());
         return venda;
