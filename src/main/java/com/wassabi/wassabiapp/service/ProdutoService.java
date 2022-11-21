@@ -26,16 +26,33 @@ public class ProdutoService {
     @Transactional
     public Produto saveProduto(Produto produto, MultipartFile file){
         if (file != null) {
+            try {
+                if (Files.deleteIfExists(new File(UPLOAD_DIRECTORY + produto.getProdutoImagem()).toPath())) {
+                    System.out.println("ARQUIVO DELETADO");
+                } else {
+                    System.out.println("ARQUIVO NÂO DELETADO");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             File folder = new File(UPLOAD_DIRECTORY);
             if (!folder.exists()) {
                 folder.mkdir();
             }
-            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, UUID.randomUUID().toString().substring(0, 20) + ".png");
-            produto.setProdutoImagem(fileNameAndPath.toString());
+            String novo_nome;
+            Path path;
+            do {
+                novo_nome = UUID.randomUUID().toString() + ".png";
+                path = Paths.get(UPLOAD_DIRECTORY, novo_nome);
+                System.out.println(path.toString());
+            
+            } while(path.toFile().isFile());
+            
+            produto.setProdutoImagem(novo_nome);
             produto = saveProduto(produto);
             if (produto.getProdutoId() != 0) {
                 try {
-                    Files.write(fileNameAndPath, file.getBytes());
+                    Files.write(path, file.getBytes());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }                
@@ -70,5 +87,4 @@ public class ProdutoService {
     // public Iterable<Produto> getProdutoByCategoria(int categoriaId){
     //     return produtoRepository.findByCategoria(categoriaId);
     // }
-
 }

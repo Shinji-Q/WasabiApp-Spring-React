@@ -2,7 +2,6 @@ package com.wassabi.wassabiapp.dto;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.RepresentationModel;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.wassabi.wassabiapp.model.Categoria;
 import com.wassabi.wassabiapp.model.Produto;

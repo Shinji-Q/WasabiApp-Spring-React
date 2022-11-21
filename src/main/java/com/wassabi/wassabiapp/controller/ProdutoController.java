@@ -78,6 +78,7 @@ public class ProdutoController {
         return lista;
     }
 
+    @SuppressWarnings("unused")
     private ProdutoDTO convertToDTO(Produto produto) {
         ProdutoDTO produtoDTO = modelMapper.map(produto, ProdutoDTO.class);
         if (produto.getProdutoImagem() != null) {
@@ -98,14 +99,13 @@ public class ProdutoController {
         return produtoDTO;
     }
 
-    private FileToMultipartFile getImageFileSystem(String filePath) {
-        File file = new File(filePath);
-        FileToMultipartFile multi = new FileToMultipartFile(file);
+    private FileToMultipartFile getImageFileSystem(String fileName) {
+        FileToMultipartFile multi = new FileToMultipartFile(new File(ProdutoService.UPLOAD_DIRECTORY + fileName));
         return multi;
     }
 
     public byte[] getImageFileSystem2(String fileName) throws IOException {       
-        byte[] images = Files.readAllBytes(new File(fileName).toPath());
+        byte[] images = Files.readAllBytes(new File(ProdutoService.UPLOAD_DIRECTORY + fileName).toPath());
         return images;
     }
 
