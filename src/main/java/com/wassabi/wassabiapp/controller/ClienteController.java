@@ -1,6 +1,9 @@
 package com.wassabi.wassabiapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wassabi.wassabiapp.model.Cliente;
+import com.wassabi.wassabiapp.model.Usuario;
+import com.wassabi.wassabiapp.security.CustomUserDetails;
 import com.wassabi.wassabiapp.service.ClienteService;
 
+@CrossOrigin(origins = "http://localhost:80")
 @RestController
 public class ClienteController {
 
@@ -31,17 +37,43 @@ public class ClienteController {
 
     @PostMapping("/cliente")
     public Cliente saveCliente(@RequestBody Cliente cliente){
-        return clienteService.saveCliente(cliente);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails customUserDetails = (CustomUserDetails) auth.getPrincipal();
+        String loggedUserUsername = customUserDetails.getUsername();
+
+        for (Usuario c : cliente.getUsuarios()) {
+            if (c.getUsuarioEmail().equals(loggedUserUsername)){
+                return clienteService.saveCliente(cliente);
+            }
+        }
+        return null;
     }
 
     @PutMapping("/cliente")
     public Cliente updateCliente(@RequestBody Cliente cliente){
-        return clienteService.saveCliente(cliente);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails customUserDetails = (CustomUserDetails) auth.getPrincipal();
+        String loggedUserUsername = customUserDetails.getUsername();
+
+        for (Usuario c : cliente.getUsuarios()) {
+            if (c.getUsuarioEmail().equals(loggedUserUsername)){
+                return clienteService.saveCliente(cliente);
+            }
+        }
+        return null;
     }
 
     @DeleteMapping("/cliente")
     public void deleteCliente(@RequestBody Cliente cliente){
-        clienteService.deleteCliente(cliente);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails customUserDetails = (CustomUserDetails) auth.getPrincipal();
+        String loggedUserUsername = customUserDetails.getUsername();
+
+        for (Usuario c : cliente.getUsuarios()) {
+            if (c.getUsuarioEmail().equals(loggedUserUsername)){
+                clienteService.deleteCliente(cliente);
+            }
+        }
     }
     
 }
