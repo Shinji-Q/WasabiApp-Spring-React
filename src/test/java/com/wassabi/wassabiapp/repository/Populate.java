@@ -118,6 +118,7 @@ public class Populate {
     @Test
     public void populateEndereco(){
         clienteService.getAllCliente().forEach(cliente -> {
+            System.out.println(cliente);
             Endereco end = new Endereco(cliente, "Rua", "bai", "cidade", "estado", "cep", "pais");
             cliente.setEnderecos(new HashSet<Endereco>());
             cliente.setCartaos(new HashSet<Cartao>());
