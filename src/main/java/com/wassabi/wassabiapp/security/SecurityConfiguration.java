@@ -42,12 +42,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .cors().and()
         .authorizeRequests()
         .antMatchers(HttpMethod.GET,"/produto/**"). permitAll()
-        .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
-        .antMatchers("/").permitAll()
+        .antMatchers("/venda").authenticated()
+        // .antMatchers("/").permitAll()
         .and().formLogin()
             .loginPage("http://localhost:80/login")
             .loginProcessingUrl("/login")
-            .defaultSuccessUrl("http://localhost:80/")
+            .defaultSuccessUrl("http://localhost:80/cardapio/1")
             .failureUrl("http://localhost:80/login?error=true")
         
             ;

@@ -6,7 +6,7 @@ CREATE TABLE Produto (
 	produto_imagem varchar(100),
 	produto_nome varchar(30) NOT NULL,
 	produto_preco double(30,2) NOT NULL,
-	produto_descricao varchar(80) NOT NULL,
+	produto_descricao varchar(200) NOT NULL,
 	produto_categoria int(30) NOT NULL,
 	PRIMARY KEY (produto_id)
 );

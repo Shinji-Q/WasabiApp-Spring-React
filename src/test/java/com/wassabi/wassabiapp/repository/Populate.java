@@ -44,66 +44,126 @@ public class Populate {
 
     @Test
     public void populatePromocao(){
-        MultipartFile file = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/melhor_lig.png");
         Categoria categoria = new Categoria("Promoção", "Promoção");
         categoria = categoriaService.saveCategoria(categoria);
-        Produto produto1 = new Produto(categoria, "Combo Promo 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1, file);
-        Produto produto2 = new Produto(categoria, "Combo Promo 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2, file);
-        Produto produto3 = new Produto(categoria, "Combo Promo 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3, file);
-        Produto produto4 = new Produto(categoria, "Combo Promo 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4, file);
+        
+        Produto produto1 = new Produto(categoria, "Combo Promo 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3 Niguiris De Skin Com Maionese Wasabi, 2 Gunkans De Biscoitinho Com Geleia");
+        MultipartFile file1 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/promocao/ComboPromo01.png");
+        produtoService.saveProduto(produto1, file1);
+        
+        Produto produto2 = new Produto(categoria, "Combo Promo 02 (15 Peças)", 53.90, "4 Sashimi De Salmao, 2 Gunkas Maçaricado Com Molho De Manga, 2 Gunkas De Biscoito Tempura E Geleia De Pimenta, 2 Gunkas De Couve, 5 Hots De Salmao Grelhado Com Pate De Anchova");
+        MultipartFile file2 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/promocao/ComboPromo02.png");
+        produtoService.saveProduto(produto2, file2);
+
+        Produto produto3 = new Produto(categoria, "Combo Promo 03 (15 Peças)", 49.90, "5 Makimono Skin Com Pesto De Jambu, 5 Hot De Kani Com Pate De Salmao Grelhadoe Cebolinha, 3 Sashimi De Salmao, 2 Biguiri De Polvo");
+        MultipartFile file3 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/promocao/ComboPromo03.png");
+        produtoService.saveProduto(produto3, file3);
+        
+        Produto produto4 = new Produto(categoria, "Combo Promo 04 (15 Peças)", 48.50, "3 Gunkan Com Patê De Polvo Apimentado 2 Niguiris De Kani 2 Niguiris De Skin 5 Peças De Salmão Grelhado Com Geléia De Pimenta 3 Sa Shimis De Atum");
+        MultipartFile file4 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/promocao/ComboPromo04.png");
+        produtoService.saveProduto(produto4, file4);
+        
+        Produto produto5 = new Produto(categoria, "Combo Promo 05 (15 Peças)", 45.50, "5 Hot De Salmão Com Palha De Couve Doce 2 Niguiris De Atum 3 Niguiris De Salmão 5 Hot Makinono De Camarão Com Patê De Salmão Grelhado Com Cream Cheese Por Cima.");
+        MultipartFile file5 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/promocao/ComboPromo05.png");
+        produtoService.saveProduto(produto5, file5);
+        
+        Produto produto6 = new Produto(categoria, "Promo Vegano (15 PEÇAS)", 40.90, "5 Makimono De Shimeji Com Palha De Couve, 5 Hot Manga Com Pipinoe Bicoitinho Tempura,2 Gunkas De Pipino Com Molho De Manga E Pimenta Biquinho, 3 Niguiri De Tofu Maçaricado Com Geleia De Pimenta");
+        MultipartFile file6 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/promocao/ComboVegano.png");
+        produtoService.saveProduto(produto6, file6);
     }
 
     @Test
     public void populateTemaki(){
-        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
-        Categoria categoria = new Categoria("Temaki", "Não tem");
+        
+        Categoria categoria = new Categoria("Temaki", "Temaki especial");
         categoria = categoriaService.saveCategoria(categoria);
-        Produto produto1 = new Produto(categoria, "Temaki 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1, file);
-        Produto produto2 = new Produto(categoria, "Temaki 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2, file);
-        Produto produto3 = new Produto(categoria, "Temaki 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3, file);
-        Produto produto4 = new Produto(categoria, "Temaki 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4, file);
+        
+        Produto produto1 = new Produto(categoria, "TEMAKI EXOTIC", 41.50, "Salmão, kani, shimeji fritos na manteiga e cream cheese, arroz e alga nori");
+        MultipartFile file1 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/temaki/TemakiExotic.png");
+        produtoService.saveProduto(produto1, file1);
+        
+        Produto produto2 = new Produto(categoria, "TEMAKI PORÓ", 42.50, "Salmão misturado com alho poró na casquinha de massa harumaki, arroz e cream cheese.");
+        MultipartFile file2 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/temaki/TemakiPoro.png");
+        produtoService.saveProduto(produto2, file2);
+
+        Produto produto3 = new Produto(categoria, "TEMAKI SALMÃO ESPECIAL", 43.50, "Salmão grelhado na casquinha de massa harumaki, cream cheese, arroz e biscoitinho tempurá.");
+        MultipartFile file3 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/temaki/TemakiSalmaoEspecial.png");
+        produtoService.saveProduto(produto3, file3);
+        
+        Produto produto4 = new Produto(categoria, "TEMAKI WASABI", 46.50, "Salmão grelhado, camarão, cream cheese, arroz, alga nori e cebolinha.");
+        MultipartFile file4 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/temaki/TemakiWasabi.png");
+        produtoService.saveProduto(produto4, file4);
+        
+        Produto produto5 = new Produto(categoria, "TEMAKI WASABI ESPECIAL", 45.50, "Recheio de hot bowling de salmão, coberto por cream cheese, arroz, alga nori e biscoitinho tempurá.");
+        MultipartFile file5 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/temaki/TemakiWasabiEspecial.png");
+        produtoService.saveProduto(produto5, file5);
+        
+        Produto produto6 = new Produto(categoria, "TEMAKI FILADELFIA MIX", 31.40, "Salmão Batido Com Cream Cheese, arroz, na alga nori E Cebolinha");
+        MultipartFile file6 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/temaki/TemakiFiladelfiaMix.png");
+        produtoService.saveProduto(produto6, file6);
     }
 
 
     @Test
     public void populateEntradas(){
-        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
         Categoria categoria = new Categoria("Entradas", "Não tem");
         categoria = categoriaService.saveCategoria(categoria);
-        Produto produto1 = new Produto(categoria, "Entradas 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1, file);
-        Produto produto2 = new Produto(categoria, "Entradas 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2, file);
-        Produto produto3 = new Produto(categoria, "Entradas 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3, file);
-        Produto produto4 = new Produto(categoria, "Entradas 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4, file);
+
+        Produto produto1 = new Produto(categoria, "SALMÃO EM CONSUMER", 39.00, "Salmão Em Consumer Com Base De Purê De Batata Doce, Queijo Do Marajó Maçaricado E Toque De Azeite De Trufas Brancas");
+        MultipartFile file1 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/entradas/SalmaoConsumer.png");
+        produtoService.saveProduto(produto1, file1);
+        
+        Produto produto2 = new Produto(categoria, "LULA EM ANÉIS GRELHADA", 41.00, "Anéis De Lula Grelhada Em Fogo Brando Com Farofa De Polvo Do Mediterrâneo E Ervas Aromáticas");
+        MultipartFile file2 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/entradas/LulaGrelhada.png");
+        produtoService.saveProduto(produto2, file2);
+
+        Produto produto3 = new Produto(categoria, "BOLINHAS DE SALMÃO FRITAS", 28.50, "10 unidades de salmão temperado com limão e cebolinha, empanados com farinha panko.");
+        MultipartFile file3 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/entradas/BolinhasSalmao.png");
+        produtoService.saveProduto(produto3, file3);
+        
+        Produto produto4 = new Produto(categoria, "GUIOZA (5 UNIDADES)", 32.00, "Pastel oriental de carne. Podendo ser frita ou a vapor.");
+        MultipartFile file4 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/entradas/Guioza.png");
+        produtoService.saveProduto(produto4, file4);
+        
+        Produto produto5 = new Produto(categoria, "MISSOSHIRU", 21.50, "Sopa, tofu, aguê e cebolinha.");
+        MultipartFile file5 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/entradas/Missoshiru.png");
+        produtoService.saveProduto(produto5, file5);
+        
+        Produto produto6 = new Produto(categoria, "NIKUMAN BOVINO", 30.50, "3 Unidades De Pãozinhos De Origem Chinesa Com Recheio De Carne Bovina.");
+        MultipartFile file6 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/entradas/NikumanBovino.png");
+        produtoService.saveProduto(produto6, file6);
     }
 
 
     @Test
     public void populateWassabi(){
-        MultipartFile file = getImageFileSystem("bd/images/melhor_lig.png");
         Categoria categoria = new Categoria("Wassabi", "Não tem");
         categoria = categoriaService.saveCategoria(categoria);
-        Produto produto1 = new Produto(categoria, "Wassabi 01 (15 Peças)", 40.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto1, file);
-        Produto produto2 = new Produto(categoria, "Wassabi 02 (15 Peças)", 53.90, "4 Sashimi de Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto2, file);
-        Produto produto3 = new Produto(categoria, "Wassabi 03 (15 Peças)", 49.90, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto3, file);
-        Produto produto4 = new Produto(categoria, "Wassabi 04 (15 Peças)", 48.50, "10 Hol De Salmao Grelhado Com Batata Palha Doce, 3");
-        produtoService.saveProduto(produto4, file);
-    }
 
+        Produto produto1 = new Produto(categoria, "HOLL TARTAR DE SALMÃO", 46.50, "10 peças de holl de Salmão e cream cheese, arroz, alga nori, gergelim, com tartare de salmão fresco por cima.");
+        MultipartFile file1 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/wassabi/HollTartar.png");
+        produtoService.saveProduto(produto1, file1);
+        
+        Produto produto2 = new Produto(categoria, "KASAI", 47.50, "10 peças de holl de Camarão, cream cheese, envolvido por finas camadas de salmão maçaricado e coberto com raspas de limão siciliano, arroz e alga nori");
+        MultipartFile file2 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/wassabi/Kasai.png");
+        produtoService.saveProduto(produto2, file2);
+
+        Produto produto3 = new Produto(categoria, "MEGASABI", 47.50, "10 peças de holl de Salmão, camarão, cream cheese, gergelim, coberto com pasta de kani e cebolinha, arroz e alga nori");
+        MultipartFile file3 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/wassabi/Megasabi.png");
+        produtoService.saveProduto(produto3, file3);
+        
+        Produto produto4 = new Produto(categoria, "SKINMAKI", 42.50, "10 peças de holl de Salmão, cream cheese, arroz, alga nori, gergelim, envolto com salmão skin.");
+        MultipartFile file4 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/wassabi/Skinmaki.png");
+        produtoService.saveProduto(produto4, file4);
+        
+        Produto produto5 = new Produto(categoria, "WASABI ESPECIAL FIT 10 PEÇAS", 50.50, "Salmão, cream cheese, alga nori, envolto com salmão maçaricado. (sem arroz).");
+        MultipartFile file5 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/wassabi/WasabiEspecialFit.png");
+        produtoService.saveProduto(produto5, file5);
+        
+        Produto produto6 = new Produto(categoria, "WASABI HOLL", 46.50, "10 pecas peças de holl Salmão grelhado, cream cheese, arroz, alga nori, gergelim, coberto com biscoitinho tempurá.");
+        MultipartFile file6 = getImageFileSystem("src/test/java/com/wassabi/wassabiapp/repository/wassabi/WasabiRoll.png");
+        produtoService.saveProduto(produto6, file6);
+    }
 
     @Test
     public void populateUsuario(){
