@@ -36,31 +36,13 @@ public class ClienteController {
     }
 
     @PostMapping("/cliente")
-    public Cliente saveCliente(@RequestBody Cliente cliente){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        CustomUserDetails customUserDetails = (CustomUserDetails) auth.getPrincipal();
-        String loggedUserUsername = customUserDetails.getUsername();
-
-        for (Usuario c : cliente.getUsuarios()) {
-            if (c.getUsuarioEmail().equals(loggedUserUsername)){
-                return clienteService.saveCliente(cliente);
-            }
-        }
-        return null;
+    public Cliente saveCliente(@RequestBody Cliente cliente){        
+        return clienteService.saveCliente(cliente);
     }
 
     @PutMapping("/cliente")
     public Cliente updateCliente(@RequestBody Cliente cliente){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        CustomUserDetails customUserDetails = (CustomUserDetails) auth.getPrincipal();
-        String loggedUserUsername = customUserDetails.getUsername();
-
-        for (Usuario c : cliente.getUsuarios()) {
-            if (c.getUsuarioEmail().equals(loggedUserUsername)){
-                return clienteService.saveCliente(cliente);
-            }
-        }
-        return null;
+        return clienteService.saveCliente(cliente);
     }
 
     @DeleteMapping("/cliente")

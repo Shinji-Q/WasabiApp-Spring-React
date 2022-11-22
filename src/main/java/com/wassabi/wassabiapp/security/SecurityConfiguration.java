@@ -42,11 +42,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .csrf().disable()
         .cors().and()
         .authorizeRequests()
-        .antMatchers("/cliente").authenticated()
+        // .antMatchers("/cliente").authenticated()
         .antMatchers(HttpMethod.GET,"/produto/**"). permitAll() //authenticated()
         // .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
         .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
-        .antMatchers("/usuario").authenticated()
+        // .antMatchers("/usuario").authenticated()
         // .antMatchers("/loggedUser**").authenticated()
         
         .antMatchers("/").permitAll()

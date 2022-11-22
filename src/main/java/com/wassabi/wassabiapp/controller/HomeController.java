@@ -34,13 +34,10 @@ public class HomeController {
         CustomUserDetails customUserDetails = (CustomUserDetails) auth.getPrincipal();
         String loggedUserUsername = customUserDetails.getUsername();
         Usuario loggedUser = usuarioRepository.findByUsuarioEmail(loggedUserUsername);
-        System.out.println(loggedUser);
         if (loggedUser == null){
             throw new UsernameNotFoundException(loggedUserUsername);
         }
-        
         return loggedUser;
-        
     }
 
     @GetMapping("/loggedUserCliente")
