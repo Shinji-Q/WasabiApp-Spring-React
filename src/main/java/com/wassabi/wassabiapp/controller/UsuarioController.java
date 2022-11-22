@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +35,16 @@ public class UsuarioController {
     @GetMapping("usuario/email/{usuarioEmail}")
     public Usuario getUsuario(@PathVariable String usuarioEmail){
         return usuarioService.getUsuariobyEmail(usuarioEmail);
+    }
+
+    @RequestMapping(value = "/usuario", params = {"usuarioEmail", "usuarioSenha"}, method = RequestMethod.GET)
+    public Usuario getUsuario(@RequestParam("usuarioEmail") String usuarioEmail, @RequestParam("usuarioSenha") String usuarioSenha){
+        Usuario usuario = usuarioService.getUsuariobyEmail(usuarioEmail);
+        if (usuario.getUsuarioSenha().equals(usuarioSenha)) {
+            return usuario;
+        } else {
+            return null;
+        }
     }
 
     @PostMapping("/usuario")
