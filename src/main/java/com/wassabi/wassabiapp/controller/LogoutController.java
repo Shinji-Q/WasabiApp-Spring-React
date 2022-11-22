@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @CrossOrigin(origins = "http://localhost:80")
 @Controller
-@RequestMapping("/login")
-public class LoginController {
-    
-    
+@RequestMapping("/logout")
+public class LogoutController {
+
     @GetMapping
-    public String login(){
+    public String logout(){
         return "Autenticado";
     }
 

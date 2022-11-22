@@ -43,10 +43,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .cors().and()
         .authorizeRequests()
         .antMatchers("/cliente").authenticated()
-        .antMatchers(HttpMethod.GET,"/produto/**").permitAll() //authenticated()
+        .antMatchers(HttpMethod.GET,"/produto/**"). permitAll() //authenticated()
         // .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
         .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
         .antMatchers("/usuario").authenticated()
+        // .antMatchers("/loggedUser**").authenticated()
         
         .antMatchers("/").permitAll()
         .and().formLogin()
@@ -55,8 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .defaultSuccessUrl("http://localhost:80/")
             .failureUrl("http://localhost:80/login?error=true")
         
-        ;
-                
+            ;
     }
 
     @Bean

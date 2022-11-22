@@ -1,6 +1,7 @@
 package com.wassabi.wassabiapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wassabi.wassabiapp.model.Venda;
 import com.wassabi.wassabiapp.service.VendaService;
 
+@CrossOrigin(origins = "http://localhost:80")
 @RestController
 public class VendaController {
     private VendaService vendaService;

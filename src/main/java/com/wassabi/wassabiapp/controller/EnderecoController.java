@@ -1,6 +1,7 @@
 package com.wassabi.wassabiapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,7 +15,7 @@ import com.wassabi.wassabiapp.model.Endereco;
 import com.wassabi.wassabiapp.model.EnderecoId;
 import com.wassabi.wassabiapp.service.EnderecoService;
 
-
+@CrossOrigin(origins = "http://localhost:80")
 @RestController
 public class EnderecoController {
 
