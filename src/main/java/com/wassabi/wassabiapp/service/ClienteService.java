@@ -39,7 +39,10 @@ public class ClienteService {
             cliente.setCartaos(new HashSet<>(0));
         }
         cliente = clienteRepository.save(cliente);
-        
+        cliente.addEndereco(enderecos);
+        cliente.updateEnderecoID();
+        cliente.addCartao(cartoes);
+        cliente.updateCartaoID();
         if (aEndereco) {
             saveEnderecos(enderecos);
             cliente.addEndereco(enderecos);
