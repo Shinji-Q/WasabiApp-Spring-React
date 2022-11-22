@@ -36,6 +36,11 @@ public class UsuarioService {
     }
 
     @Transactional
+    public Usuario getUsuariobyEmail(String usuarioEmail){
+        return usuarioRepository.findByUsuarioEmail(usuarioEmail);
+    }
+
+    @Transactional
     public void deleteUsuario(Usuario usuario) {
         usuarioRepository.delete(usuario);
     }

@@ -29,6 +29,11 @@ public class UsuarioController {
         return usuarioService.getUsuario(usuario_id);
     }
 
+    @GetMapping("usuario/email/{usuarioEmail}")
+    public Usuario getUsuario(@PathVariable String usuarioEmail){
+        return usuarioService.getUsuariobyEmail(usuarioEmail);
+    }
+
     @PostMapping("/usuario")
     public Usuario saveUsuario(@RequestBody Usuario usuario){
         usuario = this.usuarioService.saveUsuario(usuario);
