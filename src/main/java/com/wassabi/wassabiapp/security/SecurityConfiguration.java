@@ -38,17 +38,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        // .cors().and().csrf().disable()
         .csrf().disable()
         .cors().and()
         .authorizeRequests()
-        // .antMatchers("/cliente").authenticated()
-        .antMatchers(HttpMethod.GET,"/produto/**"). permitAll() //authenticated()
-        // .antMatchers(HttpMethod.GET,"/produto/cat/**").permitAll()
+        .antMatchers(HttpMethod.GET,"/produto/**"). permitAll()
         .antMatchers(HttpMethod.GET,"/venda/**").authenticated()
-        // .antMatchers("/usuario").authenticated()
-        // .antMatchers("/loggedUser**").authenticated()
-        
         .antMatchers("/").permitAll()
         .and().formLogin()
             .loginPage("http://localhost:80/login")
