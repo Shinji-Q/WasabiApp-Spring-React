@@ -131,7 +131,7 @@ public class Produto implements java.io.Serializable {
     /** 
      * @return String
      */
-    @Column(name = "produto_descricao", nullable = false, length = 80)
+    @Column(name = "produto_descricao", nullable = false, length = 200)
 	public String getProdutoDescricao() {
 		return this.produtoDescricao;
 	}
